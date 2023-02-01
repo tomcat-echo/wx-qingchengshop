@@ -28,6 +28,26 @@
 		}
 
 	}],
+	"subPackages": [{
+			"root": "subpackage",
+			"pages": [{
+				// 相对于文件夹的位置
+				"path": "goods_detail/goods_detail",
+				"style": {}
+
+			}    ,{
+                    "path" : "goods_list/goods_list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+		}
+
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "青橙商城",
