@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" circular="true" aria-role="">
-			<swiper-item v-for="(item,index) in swiperList" :key="index" :aria-label="`轮播图${index+1}`">
+			<swiper-item v-for="(item,index) in swiperList" :key="index" aria-role="img" :aria-label="`活动推荐${index+1}`">
 				<navigator class="swiper-item" :url="`/subpackage/goods_detail/goods_detail?goods_id=`+ item.goods_id">
 					<image :src="item.image_src" />
 				</navigator>
@@ -9,8 +9,8 @@
 
 		</swiper>
 
-		<view class="nav-list">
-			<view class="nav-item" @click="navClickHandler(item)" v-for="(item, i) in navigatorList" :key="i">
+		<view class="nav-list" aria-role="">
+			<view class="nav-item" @click="navClickHandler(item)" v-for="(item, i1) in navigatorList" :key="i1" aria-role="navigator" :aria-label="`${item.name}+导航`">
 				<image :src="item.image_src" class="nav-img"></image>
 			</view>
 		</view>
@@ -26,7 +26,7 @@
 
 					</navigator>
 					<view class="right-img-box">
-						<navigator class="right-item" v-for="(item2,index2) in item.product_list" :key="index" :url="item2.url">
+						<navigator class="right-item" v-for="(item2,index2) in item.product_list" :key="index2" :url="item2.url">
 							<image :src="item2.image_src" :style="{width: item2.image_width + 'rpx'}" mode="widthFix"
 								v-if="index2!= 0">
 							</image>
@@ -116,7 +116,7 @@
 		justify-content: space-around;
 		margin: 15px 0;
 
-		image {
+		.nav-img {
 			width: 128rpx;
 			height: 140rpx;
 		}
@@ -130,7 +130,7 @@
 
 	.floor-imglist {
 		display: flex;
-		padding-left: 10rpx;
+		padding-left: 10px;
 
 		.right-img-box {
 			display: flex;
