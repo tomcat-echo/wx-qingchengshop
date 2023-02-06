@@ -1,7 +1,8 @@
 <template>
 	<view>
+		<my-search @search="goToSearch"></my-search>
 		<view class="scroll-view-container">
-
+		
 			<!-- 左侧滑动区域 -->
 			<scroll-view class="left-scroll" scroll-y="true" :style="{height: wh+ 'px'}">
 				<block v-for="(item ,leftIndex) in cateList " :key="leftIndex">
@@ -92,14 +93,19 @@
 				uni.navigateTo({
 					url:'/subpackage/goods_list/goods_list?cid='+item.cat_id
 				})
+			},
+			goToSearch(){
+				uni.navigateTo({
+					url: '/subpackage/search/search'
+				})
 			}
 		}
 		,
 		onLoad() {
 			// 获取当前系统的信息
 			const sysInfo = uni.getSystemInfoSync()
-		    // 为 wh 窗口可用高度动态赋值
-			this.wh = sysInfo.windowHeight
+		    // 为 wh 窗口可用高度动态赋值(顶部组件多占50px)
+			this.wh = sysInfo.windowHeight - 50
 			
 			this.getCateList()
 			this.getCateTwoList()
