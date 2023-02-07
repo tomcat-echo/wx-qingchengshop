@@ -39,8 +39,11 @@
                     "path" : "goods_list/goods_list",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "青橙商城",
-                    "enablePullDownRefresh": false
+					"onReachBottomDistance": 150,
+					 "enablePullDownRefresh": true,
+					 "backgroundColor": "#F8F8F8",
+                    "navigationBarTitleText": "青橙商城"
+                    
                 }
                 
                 }
