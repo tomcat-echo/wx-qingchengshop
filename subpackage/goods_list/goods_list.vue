@@ -71,8 +71,9 @@
 				this.isLoading = false
 			},
 			goToDetail(item) {
+				
 			  uni.navigateTo({
-			    url: '/subpkg/goods_detail/goods_detail?goods_id=' + item.goods_id
+			    url: '/subpackage/goods_detail/goods_detail?goods_id=' + item.goods_id
 			  })
 			}
 		}
