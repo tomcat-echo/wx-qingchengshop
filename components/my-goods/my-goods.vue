@@ -6,7 +6,7 @@
 		</view>
 		<view class="text-box">
 			<!-- 商品信息 -->
-			 <view class="goods-name">{{goods.goods_name}}</view>
+			 <view class="goods-name" @click="navigatorHandler">{{goods.goods_name}}</view>
 			  <!-- 商品价格 -->
 			  <view class="goods-price">￥{{goods.goods_price+'.00'}}</view>
 			  <!-- 商品数量 -->
@@ -56,6 +56,9 @@
 					goods_count: +val,
 					
 				})
+			},
+			navigatorHandler(){
+				this.$emit('go-click')
 			}
 		}
 	}

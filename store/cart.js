@@ -55,6 +55,10 @@ export default {
 		    state.cart = state.cart.filter(x => x.goods_id !== goods_id)
 		    // 持久化存储到本地
 		    this.commit('m_cart/saveToStorage')
+		  },
+		  updateAllGoodsState(state,newState){
+			  // 让每个radio变成全选按钮相同的状态
+			  state.cart.forEach(x => x.goods_state = newState)
 		  }
 		  
 	  },
@@ -66,6 +70,22 @@ export default {
 			  state.cart.forEach( goods => c +=  goods.goods_count )
 			  state.cart.total = c
 			  return c
+		  },
+		  // 计算已选中的数量
+		  checkedCount(state){
+			   // 先使用 filter 方法，从购物车中过滤器已勾选的商品
+			    // 再使用 reduce 方法，将已勾选的商品总数量进行累加,total计算后返回值,item当前元素
+			    // reduce() 的返回值就是已勾选的商品的总数量
+				const initialValue = 0;
+			  return state.cart.filter(x => x.goods_state).reduce((total,currentVal)=> total += currentVal.goods_count,initialValue)
+		  },
+		  // 计算已选中的总价
+		  checkedPrice(state){
+		  			   // 先使用 filter 方法，从购物车中过滤器已勾选的商品
+		  			    // 再使用 reduce 方法，将已勾选的商品总数量进行累加,total计算后返回值,item当前元素
+		  			    // reduce() 的返回值就是已勾选的商品的总数量
+		  				const initialValue = 0;
+		  			  return state.cart.filter(x => x.goods_state).reduce((total,currentVal)=> total += currentVal.goods_price * currentVal.goods_count,initialValue)
 		  }
 	  },
 }
