@@ -71,19 +71,19 @@
 				// 3.1 发起请求 
 				const {
 					data: res
-				} = await uni.$http.get('/api/public/v1/home/swiperdata')
+				} = await uni.$http.get('https://api-ugo-web.itheima.net/api/public/v1/home/swiperdata')
 				this.swiperList = res.message
 			},
 			async getNavigatorList() {
 				const {
 					data: res
-				} = await uni.$http.get('/api/public/v1/home/catitems')
+				} = await uni.$http.get('https://api-ugo-web.itheima.net/api/public/v1/home/catitems')
 				this.navigatorList = res.message
 			},
 			async getFloorList() {
 				const {
 					data: res
-				} = await uni.$http.get('/api/public/v1/home/floordata')
+				} = await uni.$http.get('https://api-ugo-web.itheima.net/api/public/v1/home/floordata')
 
 				res.message.forEach(floor => {
 					floor.product_list.forEach(prod => {

@@ -46,13 +46,13 @@
 		},
 		methods:{
 			async getCateList(){
-				const {data : res} = await uni.$http.get('/api/public/v1/categories')
+				const {data : res} = await uni.$http.get('https://api-ugo-web.itheima.net/api/public/v1/categories')
 				this.cateList = res.message
 			},
 			
 			
 			async getCateTwoList(){
-				const {data: res} = await uni.$http.get('/api/public/v1/categories')
+				const {data: res} = await uni.$http.get('https://api-ugo-web.itheima.net/api/public/v1/categories')
 				res.message[0].children.forEach(cate => {
 					cate.children.forEach(list => {
 						// 自定义一个属性url,同时拼接通过split获得后半部分(原链接图片失效)

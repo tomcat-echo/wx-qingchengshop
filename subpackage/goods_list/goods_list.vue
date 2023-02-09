@@ -61,7 +61,7 @@
 		methods:{
 			async getGoodsList(cb){
 				this.isLoading = true
-				const {data:res} = await uni.$http.get('/api/public/v1/goods/search',this.queryObj)
+				const {data:res} = await uni.$http.get('https://api-ugo-web.itheima.net/api/public/v1/goods/search',this.queryObj)
 				// 请求完数据立即关闭下拉刷新
 				cb&&cb()
 				// this.goodsList = res.message.goods

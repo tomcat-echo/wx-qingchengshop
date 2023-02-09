@@ -9,7 +9,7 @@ import { $http } from '@escook/request-miniprogram'
 uni.$http = $http
 
 // 请求的根路径
-$http.baseUrl = 'https://api-ugo-web.itheima.net'
+// $http.baseUrl = 'https://api-ugo-web.itheima.net'
 
 // 请求前展示loading
 $http.beforeRequest = function(options) {
@@ -31,7 +31,14 @@ uni.$showToast = function(title = '数据请求失败', duration = 1500) {
 		duration,
 		icon: 'none'
 	})
-}
+},
+uni.$showMsg  = function(title = '数据请求失败', duration = 1500) {
+	uni.showToast({
+		title,
+		duration,
+		icon: 'none'
+	})
+},
 Vue.config.productionTip = false
 
 App.mpType = 'app'

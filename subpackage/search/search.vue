@@ -67,7 +67,7 @@
 				}
 					// 这里由于要根据结果查询要加上query参数
 					
-					const {data : res } = await uni.$http.get('/api/public/v1/goods/search', { query: this.kw })
+					const {data : res } = await uni.$http.get('https://api-ugo-web.itheima.net/api/public/v1/goods/search', { query: this.kw })
 					this.searchList = res.message.goods
 					this.saveHistory()
 				
