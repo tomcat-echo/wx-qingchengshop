@@ -98,7 +98,7 @@
 			...mapMutations('m_cart',['addToCart']),
 			async getGoodsDetail(goods_id){
 				// 属性值是goods_id,值也是goods_id因此简写
-				const {data:res} = await uni.$http.get('https://api-ugo-web.itheima.net/api/public/v1/goods/detail',{goods_id})
+				const {data:res} = await uni.$http.get('/api/public/v1/goods/detail',{goods_id})
 				// if(res.meta.status !== 200)return uni.$showToast()
 				res.message.goods_introduce =   res.message.goods_introduce.replace(/<img/g,'<img style="display:block"').replace(/webp/g,'jpg')
 				this.goods_info = res.message

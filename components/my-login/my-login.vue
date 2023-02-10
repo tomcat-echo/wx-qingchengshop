@@ -58,7 +58,7 @@
 					
 					  // 换取 token,这里接口不能用就写死了
 					  
-					  const { data: loginResult } = await uni.$http.post('https://api-ugo-web.itheima.net/api/public/v1/users/wxlogin', query)
+					  const { data: loginResult } = await uni.$http.post('/api/public/v1/users/wxlogin', query)
 					  // console.log(loginResult);
 					  // if (loginResult.meta.status !== 200) return uni.$showMsg('登录失败！')
 					  
